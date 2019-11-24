@@ -1,9 +1,5 @@
-#include <iostream>
+#include "main.h"
 
-using namespace std;
-
-int main()
+Main::Main()
 {
-    cout << "Hello World!" << endl;
-    return 0;
 }
