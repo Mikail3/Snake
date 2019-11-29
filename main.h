@@ -11,3 +11,8 @@ public:
 };
 
 #endif // MAIN_H
+
+
+
+
+/// thanks to Ibasskung on YT

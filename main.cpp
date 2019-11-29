@@ -1,5 +1,12 @@
-#include "main.h"
+#include "game.h"
+#include <QApplication>
 
-Main::Main()
+
+Game *game;
+int main(int argc, char *argv[])
 {
+    QApplication a(argc, argv);
+    game = new Game();
+    game->displayMainMenu("Snake Master","Play");
+    return a.exec();
 }

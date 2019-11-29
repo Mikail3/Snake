@@ -1,7 +1,8 @@
 #ifndef FOOD_H
 #define FOOD_H
+#include <QGraphicsPixmapItem> /// voor pixmap
 
-#include <QGraphicsPixmapItem>
+
 class food:public QGraphicsPixmapItem
 {
 public:

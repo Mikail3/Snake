@@ -7,20 +7,22 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
+    button.cpp \
     food.cpp \
-        mainwindow.cpp \
-    food.cpp \
-    gamecontroller.cpp \
-    snake.cpp \
-    wall.cpp
+    game.cpp \
+    main.cpp \
+    movesnake.cpp \
+    score.cpp \
+
+
 
 HEADERS  += main.h \
+    game.h \
+    snakepart.h \
+    movesnake.h \
     food.h \
-    food.h \
-    gamecontroller.h \
-    constants.h \
-    snake.h \
-    wall.h
+    score.h \
+    button.h
 
 RESOURCES += \
     resources.qrc
