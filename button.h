@@ -6,10 +6,10 @@
 
 class Button:public QObject, public QGraphicsRectItem
 {
-     Q_OBJECT
+    Q_OBJECT ///this is the basclass
 public:
 
-    Button(QString name, QGraphicsItem * parent = NULL);
+    Button(QString name, QGraphicsItem * parent = nullptr);
 
     //public methods
 
@@ -18,7 +18,7 @@ public:
     void hoverEnterEvent(QGraphicsSceneHoverEvent *event);
     void hoverLeaveEvent(QGraphicsSceneHoverEvent *event);
 signals:
-    void clicked();
+    bool clicked();
 private:
     QGraphicsTextItem *text;
 };

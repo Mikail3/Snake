@@ -3,8 +3,11 @@
 #include <QGraphicsView>
 #include <QKeyEvent>
 #include <QGraphicsScene>
-#include "movesnake.h"
 #include <QGraphicsRectItem>
+
+#include "score.h"
+#include "button.h"
+#include "movesnake.h"
 
 
 
@@ -12,7 +15,7 @@ class Game:public QGraphicsView
 {
     Q_OBJECT
 public:
-    Game(QWidget *parent = 0);
+    Game(QWidget *parent = nullptr);
     void keyPressEvent(QKeyEvent *event);
     Score *score;
     

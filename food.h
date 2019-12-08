@@ -6,8 +6,10 @@
 class food:public QGraphicsPixmapItem
 {
 public:
-    food(QGraphicsItem *parent = 0,QString name = "");
+    food(QGraphicsItem *parent = nullptr,QString name = "");
     int score;
+    
+    ///int item geeft score toe terug
 };
 
 #endif // FOOD_H

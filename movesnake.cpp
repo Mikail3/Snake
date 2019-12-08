@@ -7,8 +7,8 @@
 MoveSnake::MoveSnake(QGraphicsItem *parent):QGraphicsRectItem(parent)
 {
     snakeHead = new SnakePart(this);
-    snakeHead->setForward(NULL);
-    snakeHead->setBackward(NULL);
+    snakeHead->setForward(nullptr);
+    snakeHead->setBackward(nullptr);
     snakeHead->setPos(200,200);
     snakeHead->setDirection("RIGHT");
     snakeHead->part = "HEAD";

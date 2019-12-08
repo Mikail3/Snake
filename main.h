@@ -8,6 +8,7 @@ class Main : public QGraphicsItem
 {
 public:
     Main();
+    ~Main();
 };
 
 #endif // MAIN_H

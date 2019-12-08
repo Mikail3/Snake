@@ -7,7 +7,7 @@
 class SnakePart:public QGraphicsPixmapItem
 {
 public:
-    SnakePart(QGraphicsItem *parent = 0);
+    SnakePart(QGraphicsItem *parent = nullptr);
 
     SnakePart *getForward() ;
     void setForward(SnakePart *value);
@@ -24,6 +24,9 @@ public:
 
     QString part;
     void setImage();
+
+    /// SnakePart();
+    /// ~SnakePart();
 private:
 
     SnakePart *forward;

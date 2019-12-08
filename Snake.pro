@@ -12,7 +12,8 @@ SOURCES += main.cpp\
     game.cpp \
     main.cpp \
     movesnake.cpp \
-    score.cpp \
+    score.cpp \ \
+    snakepart.cpp
 
 
 

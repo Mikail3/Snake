@@ -3,9 +3,9 @@
 
 
 
-Game::Game(QWidget *parent):QGraphicsView(parent)
+Game::Game(QWidget *parent):QGraphicsView(parent) ///hier
 {
-    //making the view or window
+    //making the view/ window
     setFixedSize(1400,880);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -16,12 +16,15 @@ Game::Game(QWidget *parent):QGraphicsView(parent)
     QGraphicsPixmapItem *bg = new QGraphicsPixmapItem();
     bg->setPixmap(QPixmap(":/images/bg.jpg").scaled(1400,880));
     gameScene->addItem(bg);
+
+
+
     //adding the gameScene to the view
     setScene(gameScene);
     score = new Score();
     gameScene->addItem(score);
-    snake2 = NULL;
-    snake = NULL;
+    snake2 = nullptr;
+    snake = nullptr;
 
 }
 
@@ -59,8 +62,8 @@ void Game::displayMainMenu(QString title,QString play)
 
     //Create Quit Button
     Button * quitButton = new Button("Quit",titleText);
-    int qxPos = 160;
-    int qyPos = 230;
+    int qxPos = 150;
+    int qyPos = 250;
     quitButton->setPos(qxPos,qyPos);
     connect(quitButton, SIGNAL(clicked()),this,SLOT(close()));
     //gameScene->addItem(quitButton);

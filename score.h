@@ -7,12 +7,16 @@
 class Score:public QGraphicsTextItem
 {
 public:
-    Score(QGraphicsItem *parent = 0);
+    Score(QGraphicsItem *parent = nullptr);
     int getScore() ;
     void setScore(int value);
+    bool Score();
+
+    ///Score();
+   ///~Score();
 
 private:
-    int score;
+    int core;
 };
 
 #endif // SCORE_H
