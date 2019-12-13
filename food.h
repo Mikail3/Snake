@@ -1,16 +1,30 @@
 #ifndef FOOD_H
 #define FOOD_H
-#include <QGraphicsPixmapItem> /// voor pixmap
 
+#include <QImage>
+#include <QRect>
 
-class food:public QGraphicsPixmapItem
+class Food
 {
-public:
-    food(QGraphicsItem *parent = nullptr,QString name = "");
-    int score;
-    
-    ///int item geeft score toe terug
+
+  public:
+    Food(int, int);
+    ~Food();
+
+  public:
+    void resetState();
+    bool isDestroyed();
+    void setDestroyed(bool);
+    QRect getRect();
+    void setRect(QRect);
+    QImage & getImage();
+
+  private:
+    QImage image;
+    QRect rect;
+    unsigned char points;
+    bool destroyed;
+
 };
 
-#endif // FOOD_H
-
+#endif

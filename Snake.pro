@@ -1,29 +1,32 @@
+#-------------------------------------------------
+#
+# Project created by QtCreator 2014-12-27T23:06:28
+#
+#-------------------------------------------------
+
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = snake
+TARGET = Snake
 TEMPLATE = app
 
 
 SOURCES += main.cpp\
-    button.cpp \
     food.cpp \
     game.cpp \
-    main.cpp \
-    movesnake.cpp \
-    score.cpp \ \
-    snakepart.cpp
+    snake.cpp
 
-
-
-HEADERS  += main.h \
-    game.h \
-    snakepart.h \
-    movesnake.h \
+HEADERS  += \
     food.h \
-    score.h \
-    button.h
+    game.h \
+    snake.h
+
+FORMS    +=
+
+DISTFILES += \
+    food.png \
+    snake.png
 
 RESOURCES += \
-    resources.qrc
+    images.qrc

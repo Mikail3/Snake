@@ -1,14 +1,33 @@
-#include <QBrush> ///https://doc.qt.io/qt-5/qtwidgets-module.html
 #include "food.h"
+#include <iostream>
 
-food ::food(QGraphicsItem *parent,QString name):QGraphicsPixmapItem(parent)
-{
-    if(name == "APPLE"){
-        setPixmap(QPixmap(":/images/food.png").scaled(40,40));
-        score = 1;
-    }
-    else{
-        setPixmap(QPixmap(":/images/food2.png").scaled(40,40,Qt::KeepAspectRatio));
-        score = 2;
-    }
+Food::Food(int x, int y) {
+    image.load(":/images/food.png");
+    destroyed = false;
+    rect = image.rect();
+    rect.translate(x, y);
+}
+
+Food::~Food() {
+    std::cout << ("Food deleted\n");
+}
+
+QRect Food::getRect() {
+    return rect;
+}
+
+void Food::setRect(QRect rct) {
+    rect = rct;
+}
+
+QImage & Food::getImage() {
+    return image;
+}
+
+bool Food::isDestroyed() {
+    return destroyed;
+}
+
+void Food::setDestroyed(bool destr) {
+    destroyed = destr;
 }

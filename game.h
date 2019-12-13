@@ -1,39 +1,41 @@
 #ifndef GAME_H
 #define GAME_H
-#include <QGraphicsView>
+
+#include "food.h"
+#include "snake.h"
+#include <QWidget>
 #include <QKeyEvent>
-#include <QGraphicsScene>
-#include <QGraphicsRectItem>
 
-#include "score.h"
-#include "button.h"
-#include "movesnake.h"
-
-
-
-class Game:public QGraphicsView
+class Game : public QWidget
 {
-    Q_OBJECT
-public:
-    Game(QWidget *parent = nullptr);
+  Q_OBJECT
+
+  public:
+    Game(QWidget *parent = nullptr);   ///member function?
+    ~Game(); ///decunstroctor
+
+  protected:
+    void paintEvent(QPaintEvent *event);
+    void timerEvent(QTimerEvent *event);
     void keyPressEvent(QKeyEvent *event);
-    Score *score;
-    
-    
-    QGraphicsScene *gameScene ;
-    MoveSnake *snake;
-    MoveSnake *snake2;
-    
-    
-    void displayMainMenu(QString title, QString play);
-    QGraphicsTextItem *titleText;
-    Button *b;
-    void gameOver();
-    
-    
-    
-public slots:
-    void start();
+
+    void startGame();
+    void pauseGame();
+    void stopGame();
+    void checkCollision();
+
+  private:
+    int x;
+    int timerId;
+    unsigned char score;
+    unsigned char highscore;
+    Food *food;
+    Snake *snake;
+    bool gameOver;
+    bool gameStarted;
+    bool paused;
+    bool newhigh;
+
 };
 
-#endif // GAME_H
+#endif
