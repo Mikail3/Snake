@@ -13,11 +13,13 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
+    apple.cpp \
     food.cpp \
     game.cpp \
     snake.cpp
 
 HEADERS  += \
+    apple.h \
     food.h \
     game.h \
     snake.h

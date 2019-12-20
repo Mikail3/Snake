@@ -8,14 +8,16 @@ class Food
 {
 
   public:
-    Food(int, int);
+    Food(int, int); ///specific?
     ~Food();
+
+    virtual int eaten(int oldScore) = 0;
 
   public:
     void resetState();
     bool isDestroyed();
     void setDestroyed(bool);
-    QRect getRect();
+    QRect getRect(); ///getting the X and Y axis definitions and using
     void setRect(QRect);
     QImage & getImage();
 

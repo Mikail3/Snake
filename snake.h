@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <list>
 
-class Snake
+class Snake  ///Encapsulation with acces modifier
 {
 
   public:
@@ -21,7 +21,7 @@ class Snake
         Segment(QImage image, QRect rect, int x, int y)
                     : image(image)
                     , rect(rect)
-                    , x(x)
+                    , x(x) ///member initialisatie
                     , y(y)
                     { }
 
@@ -37,14 +37,20 @@ class Snake
     void move();
     void putSegmentAt(QImage image, QRect rect, int x, int y);
     void growBy(unsigned int numSegments);
-    const Segment & head() const {
+
+
+
+    const Segment & head() const
+    {
         return segments.front();
     }
-    const Segment & tail() const {
+    const Segment & tail() const
+    {
         return segments.back();
     }
     typedef SegmentList::const_iterator SegmentIterator;
-    SegmentIterator begin() const {
+    SegmentIterator begin() const
+    {
         return segments.begin();
     }
 

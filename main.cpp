@@ -2,7 +2,8 @@
 #include <QDesktopWidget>
 #include <QApplication>
 
-void center(QWidget &widget) {
+void center(QWidget &widget) ///basic
+{
     int x, y;
     int screenWidth;
     int screenHeight;

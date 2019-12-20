@@ -7,26 +7,29 @@
 #include <QApplication>
 #include <QThread>
 
-Game::Game(QWidget *parent) : QWidget(parent) {
+Game::Game(QWidget *parent) : QWidget(parent)
+{
     x = 0;
     score = 0;
     highscore = 0;
     gameOver = false;
     paused = false;
     gameStarted = false;
-    food = new Food(2*40+27, 2*10+47);
+    food = new Apple(2*40+27, 2*10+47);
     snake = new Snake(230, 355, 5);
 }
 
-Game::~Game() {
+Game::~Game()
+{
     delete food;
     delete snake;
 }
 
-void Game::paintEvent(QPaintEvent *event) {
+void Game::paintEvent(QPaintEvent *event) { ///using already built paintEvent
     QPainter painter(this);
 
-    if (gameOver) {
+    if (gameOver)
+    {
         QFont font("Courier", 15, QFont::DemiBold);
         QFontMetrics fm(font);
         int textWidth = fm.width("Game Over");
@@ -66,7 +69,8 @@ void Game::paintEvent(QPaintEvent *event) {
     }
 }
 
-void Game::timerEvent(QTimerEvent *event) {
+void Game::timerEvent(QTimerEvent *event)
+{
     snake->move();
     checkCollision();
     QThread::msleep(40);
@@ -118,7 +122,8 @@ void Game::pauseGame() {
     if (paused) {
         timerId = startTimer(10);
         paused = false;
-    } else {
+    } else
+    {
         paused = true;
         killTimer(timerId);
     }
@@ -142,9 +147,16 @@ void Game::checkCollision() {
 
     if ((snake->head().rect).intersects(food->getRect())) {
         food->setDestroyed(true);
-        food = new Food((1+(rand()%6))*40+27, (1+(rand()%30))*10+47);
+        score += food->eaten(score);
+        delete food;
+        switch (rand()%2) {
+        case 0:
+            food = new Apple((1+(rand()%6))*40+27, (1+(rand()%30))*10+47);
+        case 0:
+            food = new Strawberry((1+(rand()%6))*40+27, (1+(rand()%30))*10+47);
+
+        }
         snake->growBy(1);
-        score += 1;
     }
 
     Snake::SegmentIterator iter; ///used to go back to the beginning

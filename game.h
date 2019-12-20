@@ -1,7 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "food.h"
+#include "apple.h"
 #include "snake.h"
 #include <QWidget>
 #include <QKeyEvent>
