@@ -16,18 +16,23 @@ SOURCES += main.cpp\
     apple.cpp \
     food.cpp \
     game.cpp \
-    snake.cpp
+    snake.cpp \
+    strawberry.cpp
 
 HEADERS  += \
     apple.h \
     food.h \
     game.h \
-    snake.h
+    snake.h \
+    strawberry.h
 
 FORMS    +=
 
 DISTFILES += \
     food.png \
+    images/food.png \
+    images/food1.png \
+    images/snake.png \
     snake.png
 
 RESOURCES += \

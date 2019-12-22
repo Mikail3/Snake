@@ -85,7 +85,7 @@ void Game::timerEvent(QTimerEvent *event)
 void Game::keyPressEvent(QKeyEvent *event) {
     switch (event->key()) {
     case Qt::Key_Left:
-         snake->dir = Snake::LEFT;
+         snake->dir = Snake::LEFT;gith
        break;
     case Qt::Key_Right:
           snake->dir = Snake::RIGHT;
