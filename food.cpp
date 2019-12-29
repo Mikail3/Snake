@@ -23,8 +23,8 @@ food::food(QGraphicsItem *parent,QString name):QGraphicsPixmapItem(parent)
 
 
 Food::Food(int x, int y) {
-    image.load(":/images/food.png");
-     image.load(":/images/food1.png");
+     image.load(":/images/food.png");
+    image.load(":/images/food1.png");
     destroyed = false;
     rect = image.rect(); ///verwijzing naar de X , Y
     rect.translate(x, y);

@@ -29,6 +29,8 @@ class Snake  ///Encapsulation with acces modifier
         QRect rect;
         int x, y;
     };
+
+
     Direction dir;
     typedef std::list<Segment> SegmentList;
     QImage image;
@@ -48,13 +50,15 @@ class Snake  ///Encapsulation with acces modifier
     {
         return segments.back();
     }
+
     typedef SegmentList::const_iterator SegmentIterator;
     SegmentIterator begin() const
     {
         return segments.begin();
     }
 
-    SegmentIterator end() const {
+    SegmentIterator end() const
+    {
         return segments.end();
     }
 

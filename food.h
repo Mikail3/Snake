@@ -7,7 +7,7 @@
 class Food
 {
 
-  public:
+  public: ///protected;
     Food(int, int); ///specific?
     ~Food();
 

@@ -15,7 +15,7 @@ class Game : public QWidget
     ~Game(); ///decunstroctor
 
   protected:
-    void paintEvent(QPaintEvent *event);
+    void paintEvent(QPaintEvent *event); ///signal slot events? , Inheritance? this gets to somewhere else logically
     void timerEvent(QTimerEvent *event);
     void keyPressEvent(QKeyEvent *event);
 

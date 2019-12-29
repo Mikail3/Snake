@@ -24,7 +24,7 @@ Game::Game(QWidget *parent) : QWidget(parent)
     snake = new Snake(230, 355, 5);
 }
 
-Game::~Game()
+extern Game::~Game()
 {
     delete food;
     delete snake;
@@ -68,7 +68,8 @@ void Game::paintEvent(QPaintEvent *event) { ///using already built paintEvent
         painter.drawText(QPoint(w/2-35, 10), "Score: " + QString::number(score));
         painter.drawImage(food->getRect(), food->getImage());
         Snake::SegmentIterator iter;
-        for (iter = snake->segments.begin(); iter != snake->segments.end(); ++iter) {
+        for (iter = snake->segments.begin(); iter != snake->segments.end(); ++iter)
+        {
             painter.drawImage(iter->rect , iter->image);
         }
     }
@@ -84,16 +85,16 @@ void Game::timerEvent(QTimerEvent *event)
 
 void Game::keyPressEvent(QKeyEvent *event) {
     switch (event->key()) {
-    case Qt::Key_Left:
+    case Qt::Key_Q:///Key_Left:
          snake->dir = Snake::LEFT;
        break;
-    case Qt::Key_Right:
+    case Qt::Key_D:///Key_Right:
           snake->dir = Snake::RIGHT;
         break;
-    case Qt::Key_Up:
+    case Qt::Key_Z:///Key_Up:
           snake->dir = Snake::UP;
         break;
-    case Qt::Key_Down:
+    case Qt::Key_S:///Key_Down:
           snake->dir = Snake::DOWN;
         break;
     case Qt::Key_P:
@@ -119,13 +120,14 @@ void Game::startGame() {
         score = 0;
         newhigh = false;
         gameStarted = true;
-        timerId = startTimer(10);
+        timerId = startTimer(5); ///10
     }
 }
 
-void Game::pauseGame() {
+void Game::pauseGame()
+{
     if (paused) {
-        timerId = startTimer(10);
+        timerId = startTimer(5); ///10
         paused = false;
     } else
     {
@@ -147,21 +149,29 @@ void Game::stopGame() {
 
 void Game::checkCollision() {
 
-    if (snake->head().rect.bottom() >= 400 || snake->head().rect.top() <= 0 || snake->head().rect.left() <= 0 || snake->head().rect.right() >= 300)
-        stopGame();
+    if (snake->head().rect.bottom() >= 400 || ///Or function used in otder to check if the snake hit
+       snake->head().rect.top() <= 0 ||
+       snake->head().rect.left() <= 0 ||
+       snake->head().rect.right() >= 300)
+       stopGame();
 
-    if ((snake->head().rect).intersects(food->getRect())) {
+    if ((snake->head().rect).intersects(food->getRect()))
+    {
         food->setDestroyed(true);
         score += food->eaten(score);
         delete food;
 
 
-        switch (rand()%2) {
+        switch (rand()%2) ///don't
+
+        {
+
+
         case 0:
             food = new Apple((1+(rand()%6))*40+27, (1+(rand()%30))*10+47);
             break;
         case 1:
-            food = new Strawberry((1+(rand()%6))*40+27, (1+(rand()%30))*10+47);
+            food = new Strawberry((1+(rand()%3))*40+27, (1+(rand()%30))*10+47);
              break;
 
         }

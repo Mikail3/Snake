@@ -4,6 +4,7 @@
 Snake::Snake(int x, int y, int growToSize): numQueuedSegments(growToSize)
 {
     image.load(":/images/snake.png");
+
     QRect head;
     head = image.rect();
     head.moveTo(x, y);
@@ -35,7 +36,8 @@ void Snake::move()
     rect = image.rect();
     int x = head().x;
     int y = head().y;
-    switch (dir) {
+    switch (dir)
+    {
         case Snake::DOWN:
             y += 7;
         break;
