@@ -21,9 +21,11 @@ class Food
     void setRect(QRect);
     QImage & getImage();
 
-  private:
+  protected:
     QImage image; ///Member variabele?
     QRect rect;
+
+  private:
     unsigned char points;
     bool destroyed;
 

@@ -98,16 +98,16 @@ void Game::timerEvent(QTimerEvent *event)
 void Game::keyPressEvent(QKeyEvent *event)
 {
     switch (event->key()) {
-    case Qt::Key_Q:///Key_Left:
+    case Qt::Key_Left:///Key_Q:
          snake->dir = Snake::LEFT;
        break;
-    case Qt::Key_D:///Key_Right:
+    case Qt::Key_Right: ///Key_D:
           snake->dir = Snake::RIGHT;
         break;
-    case Qt::Key_Z:///Key_Up:
+    case Qt::Key_Up: ///Key_Z:
           snake->dir = Snake::UP;
         break;
-    case Qt::Key_S:///Key_Down:
+    case Qt::Key_Down: ///Key_S:
           snake->dir = Snake::DOWN;
         break;
     case Qt::Key_P:
@@ -174,11 +174,11 @@ void Game::checkCollision() {
     if ((snake->head().rect).intersects(food->getRect()))
     {
         food->setDestroyed(true);
-        score += food->eaten(score);
+        score += food->eaten(score); ///Polymorphism
         delete food;
 
 
-        switch (rand()%2) ///don't
+        switch (rand()%2)
 
         {
 

@@ -1,6 +1,27 @@
 #include "food.h"
 #include <iostream>
 
+
+/*
+
+///#include "food.h"
+
+#include <QBrush>
+
+
+food::food(QGraphicsItem *parent,QString name):QGraphicsPixmapItem(parent)
+{
+    if(name == "APPLE"){ ///puntenverdeling voor de verschillende voedsels
+        setPixmap(QPixmap(":/images/food.png").scaled(40,40));
+        score = 1;
+    }
+    else{
+        setPixmap(QPixmap(":/images/food2.png").scaled(40,40,Qt::KeepAspectRatio));
+        score = 5;
+    }
+*/
+
+
 Food::Food(int x, int y) : destroyed(false) /// Stuff behind semicolon ,, The different food's are loaded in the game , check the Other Files.
 {
     ;
