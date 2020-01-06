@@ -1,15 +1,16 @@
 #include "game.h"
 #include "food.h"
 #include "strawberry.h"
-
 #include "apple.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
 #include <string>
-#include <QPainter>
-#include <QApplication>
-#include <QThread>
+
+#include <QPainter> ///The QPainter class performs low-level painting on widgets and other paint devices
+#include <QApplication> ///The QApplication class manages the GUI application's control flow and main settings
+#include <QThread> ///The QThread class provides a platform-independent way to manage threads
 
 Game::Game(QWidget *parent) : QWidget(parent)
 {
@@ -30,7 +31,8 @@ extern Game::~Game()
     delete snake;
 }
 
-void Game::paintEvent(QPaintEvent *event) { ///using already built paintEvent
+void Game::paintEvent(QPaintEvent *event) ///Fixed , this is to create all the visual part e.x the lettertype and the pop ups.
+{
     QPainter painter(this);
 
     if (gameOver)
@@ -44,29 +46,39 @@ void Game::paintEvent(QPaintEvent *event) { ///using already built paintEvent
 
         painter.translate(QPoint(w/2, h/2));
         painter.drawText(-textWidth/2, 0, "Game Over");
-        if (newhigh == true) {
+
+        if (newhigh == true)
+        {
             int textWidth2 = fm.width("New High Score: ");
             int textWidth3 = fm.width(QString::number(highscore));
+
             painter.drawText(-textWidth2/2, 20, "New High Score: ");
             painter.drawText(-textWidth3/2, 40, QString::number(highscore));
         }
-        else {
+        else
+        {
             int textWidth2 = fm.width("Last Score: ");
             int textWidth3 = fm.width(QString::number(score));
+
             painter.drawText(-textWidth2/2, 20, "Last Score: ");
             painter.drawText(-textWidth3/2, 40, QString::number(score));
+
             int textWidth4 = fm.width("High Score: ");
             int textWidth5 = fm.width(QString::number(highscore));
+
             painter.drawText(-textWidth4/2, 60, "High Score: ");
             painter.drawText(-textWidth5/2, 80, QString::number(highscore));
         }
     }
-    else {
+    else
+    {
         QFont font("Courier", 10, QFont::DemiBold);
         int w = width();
+        
         painter.setFont(font);
         painter.drawText(QPoint(w/2-35, 10), "Score: " + QString::number(score));
         painter.drawImage(food->getRect(), food->getImage());
+        
         Snake::SegmentIterator iter;
         for (iter = snake->segments.begin(); iter != snake->segments.end(); ++iter)
         {
@@ -83,7 +95,8 @@ void Game::timerEvent(QTimerEvent *event)
     repaint();
 }
 
-void Game::keyPressEvent(QKeyEvent *event) {
+void Game::keyPressEvent(QKeyEvent *event)
+{
     switch (event->key()) {
     case Qt::Key_Q:///Key_Left:
          snake->dir = Snake::LEFT;
@@ -113,7 +126,8 @@ void Game::keyPressEvent(QKeyEvent *event) {
 }
 
 
-void Game::startGame() {
+void Game::startGame()
+{
     if (!gameStarted) {
         snake = new Snake(230, 355, 5);
         gameOver = false;
@@ -136,11 +150,13 @@ void Game::pauseGame()
     }
 }
 
-void Game::stopGame() {
+void Game::stopGame()
+{
     delete snake;
     killTimer(timerId);
     gameOver = true;
-    if (score > highscore) {
+    if (score > highscore)
+    {
         highscore = score;
         newhigh = true;
     }
@@ -149,7 +165,7 @@ void Game::stopGame() {
 
 void Game::checkCollision() {
 
-    if (snake->head().rect.bottom() >= 400 || ///Or function used in otder to check if the snake hit
+    if (snake->head().rect.bottom() >= 400 || ///Used to check if the snake hit an object.
        snake->head().rect.top() <= 0 ||
        snake->head().rect.left() <= 0 ||
        snake->head().rect.right() >= 300)
@@ -170,6 +186,7 @@ void Game::checkCollision() {
         case 0:
             food = new Apple((1+(rand()%6))*40+27, (1+(rand()%30))*10+47);
             break;
+
         case 1:
             food = new Strawberry((1+(rand()%3))*40+27, (1+(rand()%30))*10+47);
              break;

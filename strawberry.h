@@ -7,6 +7,7 @@ class Strawberry : public Food
 {
 public:
     Strawberry(int, int);
+    
     int eaten(int oldScore);
 };
 #endif // STRAWBERRY_H

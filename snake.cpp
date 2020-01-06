@@ -1,5 +1,7 @@
 #include "snake.h"
 #include <iostream>
+#include <QRect>
+
 
 Snake::Snake(int x, int y, int growToSize): numQueuedSegments(growToSize)
 {

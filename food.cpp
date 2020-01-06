@@ -22,11 +22,12 @@ food::food(QGraphicsItem *parent,QString name):QGraphicsPixmapItem(parent)
 */
 
 
-Food::Food(int x, int y) {
-     image.load(":/images/food.png");
+Food::Food(int x, int y) ///The different food's are loaded in the game , check the Other Files.
+{
+    image.load(":/images/food.png");
     image.load(":/images/food1.png");
     destroyed = false;
-    rect = image.rect(); ///verwijzing naar de X , Y
+    rect = image.rect();
     rect.translate(x, y);
 }
 
@@ -35,7 +36,7 @@ Food::~Food()
     std::cout << ("Food deleten\n");
 }
 
-QRect Food::getRect()
+QRect Food::getRect()  ///The QRect class defines a rectangle in the plane using integer precision.
 {
     return rect;
 }

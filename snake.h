@@ -15,7 +15,7 @@ class Snake  ///Encapsulation with acces modifier
     ~Snake();
 
   public:
-    enum Direction { UP, DOWN, LEFT, RIGHT };
+    enum Direction { UP, DOWN, LEFT, RIGHT }; ///Making the directions
     struct Segment
     {
         Segment(QImage image, QRect rect, int x, int y)
