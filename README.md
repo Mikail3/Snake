@@ -1,4 +1,8 @@
 # Snake
-Object Oriented Project
-C++ Snake. Ability to play in QT with a GUI and polymorphisme
+Object Oriented Project.
+
+C++ Snake. Ability to play in QT Creator.
+This game has polymorphism.
+
+
 
