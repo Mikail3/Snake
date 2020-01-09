@@ -3,5 +3,6 @@
         <file>images/food.png</file>
         <file>images/food1.png</file>
         <file>images/snake.png</file>
+        <file>images/food2.png</file>
     </qresource>
 </RCC>

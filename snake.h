@@ -7,21 +7,21 @@
 #include <stdlib.h>
 #include <list>
 
-class Snake  ///Encapsulation with acces modifier
+class Snake
 {
 
   public:
     Snake(int,int,int);
-    ~Snake();
+    ~Snake(); /* 12 : Deconstructor */
 
   public:
-    enum Direction { UP, DOWN, LEFT, RIGHT }; ///Making the directions
-    struct Segment
+    enum Direction { UP, DOWN, LEFT, RIGHT }; /* 50 : Enum */
+    struct Segment /* 48 : Sruct */
     {
         Segment(QImage image, QRect rect, int x, int y)
                     : image(image)
                     , rect(rect)
-                    , x(x) ///member initialisatie
+                    , x(x)
                     , y(y)
                     { }
 
@@ -32,7 +32,7 @@ class Snake  ///Encapsulation with acces modifier
 
 
     Direction dir;
-    typedef std::list<Segment> SegmentList;
+    typedef std::list<Segment> SegmentList; /* 32 : Container Class */
     QImage image;
     SegmentList segments;
 
@@ -42,7 +42,7 @@ class Snake  ///Encapsulation with acces modifier
 
 
 
-    const Segment & head() const
+    const Segment & head() const /* 25 : Const Ref 4x */
     {
         return segments.front();
     }
@@ -51,7 +51,7 @@ class Snake  ///Encapsulation with acces modifier
         return segments.back();
     }
 
-    typedef SegmentList::const_iterator SegmentIterator;
+    typedef SegmentList::const_iterator SegmentIterator; /* 55 : Testing */
     SegmentIterator begin() const
     {
         return segments.begin();

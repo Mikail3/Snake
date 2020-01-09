@@ -6,21 +6,21 @@
 #include <QWidget>
 #include <QKeyEvent>
 
-class Game : public QWidget
+class Game : public QWidget /* 3 : Useful encapsulation */
 {
   Q_OBJECT
 
   public:
-    Game(QWidget *parent = nullptr);   ///member function?
-    ~Game(); ///decunstroctor
+    Game(QWidget *parent = nullptr); /* 14 : useful member function */
+    ~Game(); /* 12 : Decunstructor */
 
   protected:
-    void paintEvent(QPaintEvent *event); ///signal slot events? , Inheritance? this gets to somewhere else logically
-    void timerEvent(QTimerEvent *event);
+    void paintEvent(QPaintEvent *event);
+    void timerEvent(QTimerEvent *event); /* 52 : useful usage of signals/slots , timer = function from a class this is called everywhere */
     void keyPressEvent(QKeyEvent *event);
 
     void startGame();
-   /// void startGame(int); function overloading
+    void startGame(int);
     void pauseGame();
     void stopGame();
     void checkCollision();
@@ -28,11 +28,11 @@ class Game : public QWidget
   private:
     int x;
     int timerId;
-    unsigned char score;
+    unsigned char score; /* 24 : Unsinged char */
     unsigned char highscore;
     Food *food;
     Snake *snake;
-    bool gameOver;
+    bool gameOver; /* 26 : 4 Usefull BOOL */
     bool gameStarted;
     bool paused;
     bool newhigh;

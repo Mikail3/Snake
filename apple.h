@@ -1,15 +1,17 @@
 #ifndef APPLE_H
 #define APPLE_H
 
-#include "food.h" ///Apple.h is used for polymorphism
+#include "food.h" /* 23 : Seperated header file */
 
-class Apple : public Food
+class Apple : public Food /* 4 : Inheritance , 21 : Namespaces */
 {
 public:
-    Apple();
-    Apple(int, int);
+    Apple(); /* 9 : Defualt Constructor */
+    Apple(int, int); /* 10 : Specific Constructor */
 
     int eaten(int oldScore);
 };
 
 #endif // APPLE_H
+
+

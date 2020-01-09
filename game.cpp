@@ -2,6 +2,7 @@
 #include "food.h"
 #include "strawberry.h"
 #include "apple.h"
+#include "banana.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,6 +23,7 @@ Game::Game(QWidget *parent) : QWidget(parent)
     gameStarted = false;
     food = new Apple(2*40+27, 2*10+47);
     food = new Strawberry(2*40+27, 2*10+47);
+    food = new Banana(2*40+27, 2*10+47);
     snake = new Snake(230, 355, 5);
 }
 
@@ -31,7 +33,7 @@ extern Game::~Game()
     delete snake;
 }
 
-void Game::paintEvent(QPaintEvent *event) ///Fixed , this is to create all the visual part e.x the lettertype and the pop ups.
+void Game::paintEvent(QPaintEvent *event) /* 56 : GUI */
 {
     QPainter painter(this);
 
@@ -134,14 +136,15 @@ void Game::startGame()
         score = 0;
         newhigh = false;
         gameStarted = true;
-        timerId = startTimer(5); ///10
+        timerId = startTimer(5);
     }
 }
 
 void Game::pauseGame()
 {
-    if (paused) {
-        timerId = startTimer(5); ///10
+    if (paused)
+    {
+        timerId = startTimer(5);
         paused = false;
     } else
     {
@@ -163,9 +166,10 @@ void Game::stopGame()
     gameStarted = false;
 }
 
-void Game::checkCollision() {
+void Game::checkCollision()
+{
 
-    if (snake->head().rect.bottom() >= 400 || ///Used to check if the snake hit an object.
+    if (snake->head().rect.bottom() >= 500 || /* 55 : Testing */
        snake->head().rect.top() <= 0 ||
        snake->head().rect.left() <= 0 ||
        snake->head().rect.right() >= 300)
@@ -174,11 +178,11 @@ void Game::checkCollision() {
     if ((snake->head().rect).intersects(food->getRect()))
     {
         food->setDestroyed(true);
-        score += food->eaten(score); ///Polymorphism
+        score += food->eaten(score); /* 8 : Polymorphism */
         delete food;
 
 
-        switch (rand()%2)
+        switch (rand()%3)
 
         {
 
@@ -191,12 +195,19 @@ void Game::checkCollision() {
             food = new Strawberry((1+(rand()%3))*40+27, (1+(rand()%30))*10+47);
              break;
 
+        case 2:
+            food = new Banana((1+(rand()%3))*40+27, (1+(rand()%30))*10+47);
+             break;
+
+
+
         }
         snake->growBy(1);
     }
 
-    Snake::SegmentIterator iter; ///used to go back to the beginning
+    Snake::SegmentIterator iter; /* 55 : Testing , this doesn't allow the snake to turn in the opposite direction */
     for (iter = ++snake->segments.begin(); iter != snake->segments.end(); ++iter)
         if (iter->x == snake->head().x && iter->y == snake->head().y)
             stopGame();
 }
+

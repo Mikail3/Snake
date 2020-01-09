@@ -14,6 +14,7 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
     apple.cpp \
+    banana.cpp \
     food.cpp \
     game.cpp \
     snake.cpp \
@@ -21,6 +22,7 @@ SOURCES += main.cpp\
 
 HEADERS  += \
     apple.h \
+    banana.h \
     food.h \
     game.h \
     snake.h \
@@ -30,8 +32,10 @@ FORMS    +=
 
 DISTFILES += \
     food.png \
+    food1.png \
     images/food.png \
     images/food1.png \
+    images/food2.png \
     images/snake.png \
     snake.png
 

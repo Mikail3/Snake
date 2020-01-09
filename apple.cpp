@@ -8,14 +8,14 @@
 }
 */
 
-Apple::Apple(int x, int y) : Food(x,y)
+Apple::Apple(int x, int y) : Food(x,y) /* 15 : default values in function definition */
 {
     image.load(":/images/food.png");
     rect = image.rect();
     rect.translate(x, y);
 }
 
-int Apple::eaten(int oldScore) ///Score is given back
+int Apple::eaten(int oldScore)  ///Score is given back
 
 {
     return 1; ///Apple = 1 point.

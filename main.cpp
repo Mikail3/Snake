@@ -8,10 +8,10 @@ void center(QWidget &widget)
     int screenWidth;
     int screenHeight;
 
-    int WIDTH = 300; ///Width of the game
-    int HEIGHT = 500;///Height of the game
+    int WIDTH = 300;
+    int HEIGHT = 500;
 
-    QDesktopWidget *desktop = QApplication::desktop(); ///Fixed
+    QDesktopWidget *desktop = QApplication::desktop();
 
     screenWidth = desktop->width();
     screenHeight = desktop->height();
@@ -23,14 +23,14 @@ void center(QWidget &widget)
     widget.setFixedSize(WIDTH, HEIGHT);
 }
 
-int main(int argc, char *argv[]) ///Making the main window.
+int main(int argc, char *argv[]) /* 46 : Command line paramter , pass value */
 {
-    QApplication app(argc, argv);
+    QApplication app(argc, argv); /* 27 : Pointer declaration */
 
     Game window;
     window.setWindowTitle("Snake");
     window.show();
     center(window);
 
-    return app.exec(); ///
+    return app.exec();
 }
