@@ -11,7 +11,7 @@ class Food /* 5 : Base class */
     Food(int, int); /* 10 : Specific Constructor */
     ~Food(); /* 12 : Deconstructor */
 
-  virtual int eaten(int oldScore) = 0; /* 7 : Virtual Function */ ///Modifier that defines polymorphic behavior , using this to override in other classses.
+  virtual int eaten(int oldScore) = 0; /* 7 : Virtual Function */ /// This makes is abstract Modifier that defines polymorphic behavior , using this to override in other classses.
 
   public:
     void resetState();
@@ -28,6 +28,7 @@ class Food /* 5 : Base class */
   private:
     unsigned char points; /* 24 : Unsigned Char */
     bool destroyed;
+
 
 };
 

@@ -7,7 +7,7 @@ Banana::Banana(int x, int y) : Food(x,y)
     rect.translate(x, y);
 }
 
-int Banana::eaten(int oldScore)  ///Score is given back
+int Banana::eaten(int oldScore)
 
 {
     return 3;

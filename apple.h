@@ -1,5 +1,6 @@
 #ifndef APPLE_H
 #define APPLE_H
+/*using namespace std; */
 
 #include "food.h" /* 23 : Seperated header file */
 

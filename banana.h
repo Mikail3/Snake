@@ -1,7 +1,5 @@
 #ifndef BANANA_H
 #define BANANA_H
-
-
 #include "food.h"
 
 class Banana : public Food

@@ -4,6 +4,7 @@
 #include "food.h"
 
 
+
 class Strawberry : public Food
 {
 public:

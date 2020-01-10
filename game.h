@@ -6,13 +6,17 @@
 #include <QWidget>
 #include <QKeyEvent>
 
+
+
 class Game : public QWidget /* 3 : Useful encapsulation */
 {
   Q_OBJECT
 
   public:
-    Game(QWidget *parent = nullptr); /* 14 : useful member function */
+    Game(QWidget *parent = nullptr); /* 14 : useful member function , 44 : NULLPTR */
     ~Game(); /* 12 : Decunstructor */
+
+
 
   protected:
     void paintEvent(QPaintEvent *event);

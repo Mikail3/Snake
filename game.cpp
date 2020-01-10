@@ -23,13 +23,13 @@ Game::Game(QWidget *parent) : QWidget(parent)
     gameStarted = false;
     food = new Apple(2*40+27, 2*10+47);
     food = new Strawberry(2*40+27, 2*10+47);
-    food = new Banana(2*40+27, 2*10+47);
-    snake = new Snake(230, 355, 5);
+    food = new Banana(2*40+27, 2*10+47); /* 28 : Dynamic memory allocation */
+    snake = new Snake(250, 350, 5); ///230 , 355 , 5
 }
 
 extern Game::~Game()
 {
-    delete food;
+    delete food; /* 29 : Dynamic memory removing */
     delete snake;
 }
 
